@@ -1,0 +1,6 @@
+{
+  "name": "Bharat Translate",
+  "description": "A modern AI-powered multilingual translation platform focused on Indian languages with real-time text, voice, and camera translation.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["AI Translation", "OCR", "Voice Recognition"]
+}

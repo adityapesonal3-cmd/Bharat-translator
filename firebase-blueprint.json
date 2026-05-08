@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user account information and settings.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "preferredLanguage": { "type": "string" },
+        "theme": { "type": "string", "enum": ["light", "dark"] },
+        "isAdmin": { "type": "boolean" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Translation": {
+      "title": "Translation Record",
+      "description": "Represents a single translation entry in user history.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "sourceText": { "type": "string" },
+        "translatedText": { "type": "string" },
+        "sourceLang": { "type": "string" },
+        "targetLang": { "type": "string" },
+        "type": { "type": "string", "enum": ["text", "voice", "camera"] },
+        "isFavorite": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "sourceText", "translatedText", "sourceLang", "targetLang"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "UserProfile",
+      "description": "Collection of user profiles."
+    },
+    "translations": {
+      "schema": "Translation",
+      "description": "Collection of all translation records across all users."
+    }
+  }
+}
